@@ -1,0 +1,36 @@
+object Form1: TForm1
+  Left = 514
+  Top = 210
+  Width = 150
+  Height = 90
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=MSDAORA.1;Password=test;User ID=test;Data Source=level3' +
+      ';Persist Security Info=True'
+    LoginPrompt = False
+    Provider = 'MSDAORA.1'
+    Left = 24
+    Top = 4
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT * FROM (SELECT DATATIME FROM SPECTROMETR ORDER BY ID DESC' +
+        ') WHERE ROWNUM = 1')
+    Left = 64
+    Top = 16
+  end
+end
